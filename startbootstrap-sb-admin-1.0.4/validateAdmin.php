@@ -1,7 +1,6 @@
 <?php
 
-        // Start the session
-        session_start();
+       
 
         $un = $_POST['email'];
         $pw = $_POST['password'];
@@ -18,14 +17,18 @@
 
         while($row = mysqli_fetch_array($result))
           {
-            $_SESSION["un"] = "admin";
-          
-            header("Location: index.html");
+            // Start the session
+            session_start();
+            $_SESSION['un'] = 'admin';
+            
+            header("Location: index.php");
             exit;
           }             
      
         mysqli_close($con);
-        header("Location: login.html");
+        $msg = "Email or Password is wrong";
+        $class = "alert alert-danger";
+        header("Location: login.php?msg=".$msg."&class=".$class);
         exit;
 
 ?>

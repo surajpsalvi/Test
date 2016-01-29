@@ -32,6 +32,21 @@
 
 </head>
 
+<?php   
+    // Start the session
+    session_start();
+            
+   if(! isset( $_SESSION['un'] ) )
+    {
+        echo "Here";
+        $msg = "Please login first";
+        $class = "alert alert-danger";
+        header("Location: login.php?msg=".$msg."&class=".$class); 
+        exit;
+    }
+
+?>
+
 <body>
 
     <div id="wrapper">
@@ -144,7 +159,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>

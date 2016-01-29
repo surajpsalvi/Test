@@ -44,9 +44,14 @@
                     <div class="panel-body">
                         <form role="form" action="validateAdmin.php" method="post">
                             <fieldset>
-                                <div class="alert alert-danger">
-                                    <strong>Oh snap!</strong> Change a few things up and try submitting again.
-                                </div>
+<?php                                          
+                       if(isset($_GET['msg']))
+                        {
+                                echo "<div class='".$_GET['class']."'>";
+                                echo    "<strong>".$_GET['msg']."</strong>";
+                                echo "</div>";
+                        }
+?>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" required name="email" type="email" autofocus>
                                 </div>
